@@ -23,7 +23,7 @@ public class TestDemo {
 		Transaction transaction = session.beginTransaction(); 
 	
 		//4. 执行保存操作
-		Test test = new Test(1522, "Jackic", 88f);
+		Test test = new Test(1523, "Jackic", 88f);
 		session.save(test);
 		
 		//5. 提交事务

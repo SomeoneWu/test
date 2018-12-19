@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <!-- 开启开发者模式 -->
+    <constant name="struts.devMode" value="true"></constant>
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+
+    <!-- 热加载配置 每次配置文件更改后自动重新加载 -->
+    <constant name="struts.configuration.xml.reload" value="true"></constant>
+    
+     <package name="default" namespace="/" extends="struts-default"></package>
+    
+	<!--引入test.xml-->
+	<include file="strutsXMLS/test.xml"></include>
+
+</struts>
