@@ -5,7 +5,7 @@
 
 <struts>
     <package name="Action" namespace="/" extends="struts-default">
-         <action name="getInfo" class="getInfoAction">
+         <action method="quary" name="getInfo" class="getInfoAction">
             <result name="tologin">/test/test.jsp</result>
         </action>
     </package>

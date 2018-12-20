@@ -7,8 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="">
+<form action="getInfo">
 Id:<input type="text" name="id">
+<input type="submit">
 </form>
 </body>
 </html>

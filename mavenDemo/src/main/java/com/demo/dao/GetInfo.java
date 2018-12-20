@@ -1,9 +1,12 @@
 package com.demo.dao;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.demo.entity.Test;
 
+@Transactional
 public class GetInfo {
 	private SessionFactory sessionFactory;
 
@@ -17,8 +20,9 @@ public class GetInfo {
 	
 	@SuppressWarnings("deprecation")
 	public Test quaryByID(Integer Id) {
-		Test test = (Test)sessionFactory.getCurrentSession().createQuery
-		("select * from test where id = ?").setInteger(0, Id).uniqueResult();
+		Session session = sessionFactory.getCurrentSession();
+		
+		Test test = (Test)session.createQuery("from Test where id=?").setInteger(0, Id).uniqueResult();
 		
 		return test;
 	}
