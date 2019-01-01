@@ -14,8 +14,21 @@
         <property name="getInfo" ref="getInfo"></property>
     </bean>
 
-    <!--依赖action，注入service-->
     <bean class="com.demo.dao.GetInfo" id="getInfo">
         <property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
+    
+    <!-- ShopCar -->	
+	<bean class="com.demo.shopcar.action.ShopCarAction" id="shopcarAction">
+        <property name="shopCarService" ref="shopCarService"></property>
+    </bean>
+
+    <bean class="com.demo.shopcar.service.ShopCarServiceImpl" id="shopCarService">
+        <property name="shopCarDao" ref="shopCarDao"></property>
+    </bean>
+
+    <bean class="com.demo.shopcar.dao.ShopCarDao" id="shopCarDao">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    
 </beans>

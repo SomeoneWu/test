@@ -22,10 +22,28 @@
             <param-name>flushMode</param-name>
             <param-value>AUTO</param-value>
         </init-param>
+        
+        <filter-name>encodingFilter</filter-name>
+    	<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+   		<init-param>
+      		<param-name>encoding</param-name>
+      		<param-value>utf-8</param-value>
+   	 	</init-param>
+    	<init-param>
+      		<param-name>forceRequestEncoding</param-name>
+      		<param-value>true</param-value>
+    	</init-param>
+    	<init-param>
+      		<param-name>forceResponseEncoding</param-name>
+      		<param-value>true</param-value>
+    	</init-param>
     </filter>
     <filter-mapping>
         <filter-name>hibernateFilter</filter-name>
         <url-pattern>/*</url-pattern>
+        
+        <filter-name>encodingFilter</filter-name>
+    	<url-pattern>/*</url-pattern>
     </filter-mapping>
 
     <!-- spring上下文配置 -->
@@ -43,11 +61,17 @@
 	 <filter>
         <filter-name>struts2</filter-name>
         <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+   		<init-param>
+      		<param-name>config</param-name>
+      		<param-value>struts-default.xml,struts-plugin.xml,struts.xml</param-value>
+    	</init-param>
     </filter>
 
     <filter-mapping>
         <filter-name>struts2</filter-name>
         <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+   		<dispatcher>FORWARD</dispatcher>
     </filter-mapping>
 
 </web-app>

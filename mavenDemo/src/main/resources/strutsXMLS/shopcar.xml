@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <package name="com" extends="json-default">
+         <action method="queryByUserID" name="queryByUserID" class="shopcarAction">
+            <result type="json" name="toshow">
+            <!-- 这里指定将被Struts2序列化的属性，该属性在action中必须有对应的getter方法 -->
+				<!-- 默认将会序列所有有返回值的getter方法的值，而无论该方法是否有对应属性 -->
+				<param name="root">data</param>
+            </result>
+        </action>
+        
+        <action method="queryShopCarByUserID" name="queryShopCarByUserID" class="shopcarAction">
+            <result type="json" name="shopcar">
+				<param name="root">data</param>
+            </result>
+        </action>
+        
+        <action method="queryMealByMealId" name="queryMealByMealId" class="shopcarAction">
+            <result name="mealInfo">/test/shopcar.jsp</result>
+        </action>
+        
+        <action method="saveMeal" name="saveMeal" class="shopcarAction">
+            <result type="json" name="saveMeal">
+				<param name="root">data</param>
+            </result>
+        </action>
+        
+        <action method="deleteFromShopCar" name="deleteFromShopCar" class="shopcarAction">
+            <result name="deleteMeal" type="chain">queryMealByMealId</result>
+        </action>
+        
+    </package>
+</struts>

@@ -35,6 +35,11 @@
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+        <property name="checkWriteOperations" value="false"/>
+    </bean>
+	
 	<!-- 配置事务属性 -->
 	<tx:annotation-driven transaction-manager="hibernateTransactionManager"/> 
 	<tx:advice id="advice" transaction-manager="hibernateTransactionManager">
@@ -49,5 +54,6 @@
 		<aop:pointcut expression="execution(* com.demo.*.service.*.*(..))" id="pointCut"/>
 		<aop:advisor advice-ref="advice" pointcut-ref="pointCut"/>
 	</aop:config>
-		
+	
+	<aop:aspectj-autoproxy  proxy-target-class="true"/>
 </beans>

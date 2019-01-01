@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.demo.shopcar.entity.ShopCar" table="t_shopcar">
+		<id name="ID" type="java.lang.Integer">
+			<column name="ID"></column>
+			<generator class="identity"></generator>
+		</id>
+		<property name="userID" type="java.lang.Integer"> 
+			<column name="userID" /> 
+		</property> 
+		<property name="mealID" type="java.lang.String"> 
+			<column name="mealID" /> 
+		</property>
+		<property name="mealCount" type="java.lang.String"> 
+			<column name="mealCount" /> 
+		</property>  
+	</class>
+</hibernate-mapping>

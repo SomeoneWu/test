@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.demo.meal.entity.Meal" table="t_meal">
+		<id name="mealID" type="java.lang.Integer">
+			<column name="mealID"></column>
+			<generator class="identity"></generator>
+		</id>
+		<property name="seriesID" type="java.lang.Integer"> 
+			<column name="seriesID" /> 
+		</property> 
+		<property name="mealName" type="java.lang.String"> 
+			<column name="mealName" /> 
+		</property>
+		<property name="mealDescription" type="java.lang.String"> 
+			<column name="mealDescription" /> 
+		</property>
+		<property name="mealPrice" type="java.lang.Float"> 
+			<column name="mealPrice" /> 
+		</property>
+		<property name="mealImg" type="java.lang.String"> 
+			<column name="mealImg" /> 
+		</property> 
+	</class>
+</hibernate-mapping>

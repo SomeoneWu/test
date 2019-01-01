@@ -4,16 +4,20 @@
         "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
         "http://struts.apache.org/dtds/struts-2.5.dtd">
 <struts>
+	<!--测试的时候使用
+	<constant name="struts.action.excludePattern" value="/index.jsp,/login.jsp,/unauthorized.jsp,/upload.jsp, /static.*,/images.*"/>
+    -->
     <!-- 开启开发者模式 -->
     <constant name="struts.devMode" value="true"></constant>
-    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
 
     <!-- 热加载配置 每次配置文件更改后自动重新加载 -->
     <constant name="struts.configuration.xml.reload" value="true"></constant>
     
-     <package name="default" namespace="/" extends="struts-default"></package>
+    <package name="default" namespace="/" extends="struts-default,json-default"></package>
     
 	<!--引入test.xml-->
 	<include file="strutsXMLS/test.xml"></include>
+	<include file="strutsXMLS/shopcar.xml"></include>
 
 </struts>
